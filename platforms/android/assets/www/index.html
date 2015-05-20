@@ -11,16 +11,37 @@
               <script type="text/javascript" src="cordova.js"></script>
        <!-- //<script type="text/javascript" src="js/index.js"></script>-->
         <script type="text/javascript" src="jquery.js"></script>
+        <script type="text/javascript" src="js/SQLitePlugin.js"></script>
         <script type="text/javascript" src="js/jquery.mobile-1.0rc2.min.js"></script>
        <script type="text/javascript">
-           //add listener when device ready
-           document.addEventListener("deviceready", onDeviceReady, false);
            var db = window.openDatabase("Dummy_DB", "1.0", "Just a Dummy DB", 200000); //will create database Dummy_DB or open it
+           var app = {
 
-           //function will be called when device ready
-           function onDeviceReady() {
-               db.transaction(populateDB, errorCB, successCB);
-           }
+               initialize: function () {
+                   this.bindEvents();
+               },
+
+               bindEvents: function () {
+                   document.addEventListener('deviceready', this.onDeviceReady, false);
+               },
+
+               onDeviceReady: function () {
+                   app.receivedEvent('deviceready');
+                   db.transaction(populateDB, errorCB, successCB);
+               },
+
+               receivedEvent: function (id) {
+                   var parentElement = document.getElementById(id);
+                   var listeningElement = parentElement.querySelector('.listening');
+                   var receivedElement = parentElement.querySelector('.received');
+
+                   listeningElement.setAttribute('style', 'display:none;');
+                   receivedElement.setAttribute('style', 'display:block;');
+
+                   console.log('Received Event: ' + id);
+               }
+           };
+
 
            //create table and insert some record
            function populateDB(tx) {
