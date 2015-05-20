@@ -10,5 +10,5 @@
     </author>
     <content src="index.html" />
     <access origin="*" />
-  <plugin name="com.millerjames01.sqlite-plugin" version="1.0.1" />
+  <plugin name="Storage" value="org.apache.cordova.Storage" />
 </widget>
