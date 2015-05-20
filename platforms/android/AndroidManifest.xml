@@ -10,11 +10,5 @@
             </intent-filter>
         </activity>
     </application>
-    <uses-sdk android:minSdkVersion="10" android:targetSdkVersion="21" />
-  <activity
-    android:name="org.apache.cordova.DroidGap"
-    android:label="@string/app_name"
-    android:configChanges="orientation|keyboardHidden">
-    <intent-filter></intent-filter>
-  </activity>
+  <uses-sdk android:minSdkVersion="10" android:targetSdkVersion="21" />
 </manifest>

@@ -10,5 +10,5 @@
     </author>
     <content src="index.html" />
     <access origin="*" />
-  <plugin name="Storage" value="org.apache.cordova.Storage" />
+  <plugin name="Storage" value="org.apache.cordova.Storage"/>
 </widget>
